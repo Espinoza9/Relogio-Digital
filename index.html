@@ -1,0 +1,43 @@
+<DOCTYPE html>
+    <html lang="en" dir="ltr">
+        <head>
+            <title>Relogio Digital</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+       <body>
+        <div class="wrapper">
+            <div class="display">
+                <div id="time"></div>
+            </div>
+            <span></span>
+            <span></span>
+        </div>
+        <script>
+            setInterval(()=>{
+            const time = document.querySelector("#time");
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let segunds= date.getSeconds();
+            let day_nigth = "PM";
+
+            if (hours < 12) {
+                day_nigth = "AM";
+                hours =  hours -12;
+               
+            }
+            if (hours < 10) {
+                hours = "0" + hours;
+                
+            }if (minutes < 10) {
+                minutes = "0" + minutes;
+                
+            } if (segunds < 10) {
+                segunds = "0" + segunds;
+                
+            }
+            time.textContent = hours + ":" + minutes + ":" + segunds +" "+  day_nigth;
+            });
+        </script>
+       </body>
+    </html>
